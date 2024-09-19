@@ -1,0 +1,49 @@
+// Example Script File for a Turing Machine Simulation
+// by Chandler Klüser, 2024
+
+// Syntax:
+
+// 1 - Lines which starts with "//" are ignored, feel free to use them as comments
+// 2 - Linebreaks and Whitespaces are ignored
+// 3 - Separate values by commas, don't use quotes for any value
+// 4 - Except for Movements, if you redefine any other value (like tape string)
+// in a later line the last value will be ignored and replaced by newest one
+// 5 - Initial Turing Machine Tape Definition:
+// tape=<tape_string>
+// Example:
+// tape=$01011$HELLO
+// If you want to run multiple simulations, you can repeat this command with other tapes
+// the simulator will make another simulation with all tapes defined
+// 6 - Initial Turing Machine Tape Head Definition:
+// head=<zero_based_tape_index>
+// Example:
+// head=0
+// Number of Tape Definitions and their heads must match
+// 7 - Initial State definition:
+// initial_state=<place_your_initial_state_name_here>
+// Example:
+// initial_state=q0
+// The Initial State must match with a state defined in moves
+// 8 - Accept State definition:
+// accept_states=<stateA_name>,<stateB_name>,...,<stateX_name>
+// Example:
+// accept_states=q1,q3
+// IMPORTANT: Accept States cannot be Turing Machine Initial State
+// At least one Accept State must match with any state defined in moves
+// 9 - move definition:
+// <current_state_name>,<character_to_compare>,<character_to_replace>,<tape_head_movement>,<next_state_name>
+// tape head movement can be "<" (left), ">" (right) or "-" (keep in position)
+// Move Example:
+// q0,$,1,>,q3
+// 
+// 10 - Blank Tape Slots can be detected by leaving Tape Symbol blank
+// 11 - You can also define an "always write" symbol by placing '*' as a read symbol
+
+tape=31 // this is an inline comment and it will be ignored
+head=0
+initial_state=q0
+accept_states=q3
+
+q0,3,3,>,q1
+q1,1,1,<,q0
+q2,,$,-,q3

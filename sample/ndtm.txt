@@ -1,0 +1,13 @@
+tape=0000000000000000000000$
+head=0
+initial_state=q0
+accept_states=q1
+
+// Non-deterministic Automatas supports two or more
+// valid transitions between states
+
+q0,0,0,>,q0 // Non-deterministic transitions
+q0,0,1,>,q0 // Non-deterministic transitions
+
+q0,$,#,-,q1 // deterministic transition
+

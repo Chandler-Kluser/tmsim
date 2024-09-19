@@ -1,0 +1,46 @@
+tape=#0101#0011#
+tape=#01#11#
+tape=#01A11#
+tape=#01010101#01010101#
+tape=#01010101#0101010#
+head=1
+head=1
+head=1
+head=1
+head=1
+initial_state=q0
+accept_states=qf
+
+q0,0,x,>,q1a
+q0,1,x,>,q1b
+
+q1a,0,0,>,q1a
+q1a,1,1,>,q1a
+
+q1b,0,0,>,q1b
+q1b,1,1,>,q1b
+
+q1a,#,#,>,q2a
+q1b,#,#,>,q2b
+
+q2a,U,U,>,q2a
+q2a,L,L,>,q2a
+q2b,U,U,>,q2b
+q2b,L,L,>,q2b
+
+q2a,0,L,<,q3 // AND
+q2a,1,L,<,q3 // AND
+q2b,0,L,<,q3 // AND
+q2b,1,U,<,q3 // AND
+
+q3,U,U,<,q3
+q3,L,L,<,q3
+
+q3,#,#,<,q4
+
+q4,0,0,<,q4
+q4,1,1,<,q4
+q4,x,x,>,q0
+
+// FINAL
+q0,#,#,>,qf
